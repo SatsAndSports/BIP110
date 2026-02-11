@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Which Bitcoin Should You Run?</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Ubuntu+Mono&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #0a0a0a;
+            --card-bg: #1a1a1a;
+            --btc-orange: #f7931a;
+            --text-color: #e0e0e0;
+            --muted-text: #888;
+            --no-color: #ff4d4d;
+            --yes-color: #2ecc71;
+            --border-radius: 8px;
+            --line-width: 4px;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 60px;
+            border: 4px solid var(--btc-orange);
+            padding: 20px 40px;
+            border-radius: var(--border-radius);
+            box-shadow: 0 0 20px rgba(247, 147, 26, 0.2);
+        }
+
+        h1 {
+            margin: 0;
+            font-weight: 900;
+            font-size: 2.5em;
+            color: var(--btc-orange);
+            text-transform: uppercase;
+        }
+
+        .subtitle {
+            margin-top: 10px;
+            font-style: italic;
+            color: var(--muted-text);
+        }
+
+        .flow-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            max-width: 1000px;
+        }
+
+        .node {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            margin-bottom: 40px;
+            width: 100%;
+        }
+
+        .question-box {
+            background-color: var(--card-bg);
+            border: 2px solid #333;
+            padding: 20px;
+            border-radius: var(--border-radius);
+            width: 600px;
+            text-align: center;
+            font-weight: 700;
+            font-size: 1.1em;
+            z-index: 2;
+        }
+
+        .choices {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            margin-top: 20px;
+            position: relative;
+        }
+
+        .choice-branch {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 50%;
+            position: relative;
+        }
+
+        .path-label {
+            font-weight: 900;
+            font-size: 0.9em;
+            margin-bottom: 10px;
+            padding: 4px 12px;
+            border-radius: 4px;
+        }
+
+        .yes-label { color: var(--yes-color); }
+        .no-label { color: var(--no-color); }
+
+        .answer-box {
+            background-color: #222;
+            border-radius: var(--border-radius);
+            padding: 15px;
+            width: 300px;
+            font-size: 0.95em;
+            line-height: 1.4;
+            border-left: 4px solid transparent;
+        }
+
+        .yes-box {
+            border-color: var(--yes-color);
+            background: linear-gradient(145deg, #1a1a1a, #222);
+        }
+
+        .no-box {
+            border-color: var(--no-color);
+            background: linear-gradient(145deg, #1a1a1a, #2a1a1a);
+        }
+
+        .punchline-container {
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .punchline-box {
+            background-color: #000;
+            border: 2px solid var(--no-color);
+            padding: 15px;
+            border-radius: var(--border-radius);
+            width: 280px;
+            font-family: 'Ubuntu Mono', monospace;
+            font-size: 0.9em;
+            color: #ff9999;
+            position: relative;
+        }
+
+        .punchline-box::before {
+            content: "➜";
+            position: absolute;
+            left: -25px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.5em;
+            color: var(--no-color);
+        }
+
+        .arrow-down {
+            width: var(--line-width);
+            height: 40px;
+            background-color: var(--btc-orange);
+            position: relative;
+        }
+
+        .arrow-down::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-left: 8px solid transparent;
+            border-right: 8px solid transparent;
+            border-top: 10px solid var(--btc-orange);
+        }
+
+        .connector-yes {
+            width: var(--line-width);
+            height: 60px;
+            background-color: var(--btc-orange);
+        }
+
+        .victory-box {
+            margin-top: 40px;
+            padding: 40px;
+            border: 8px solid var(--btc-orange);
+            background-color: var(--card-bg);
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 0 50px rgba(247, 147, 26, 0.4);
+            animation: glow 2s infinite alternate;
+        }
+
+        @keyframes glow {
+            from { box-shadow: 0 0 20px rgba(247, 147, 26, 0.2); }
+            to { box-shadow: 0 0 60px rgba(247, 147, 26, 0.6); }
+        }
+
+        .keep-calm {
+            font-size: 3em;
+            font-weight: 900;
+            margin: 0;
+            line-height: 1;
+        }
+
+        .run-taproot {
+            font-size: 4em;
+            color: var(--btc-orange);
+            margin: 10px 0;
+        }
+
+        .post-credits {
+            margin-top: 80px;
+            border-top: 2px dashed #444;
+            padding-top: 40px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .wait-label {
+            background-color: #333;
+            padding: 5px 20px;
+            border-radius: 20px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .bip110-fail {
+            color: var(--no-color);
+            font-weight: bold;
+        }
+
+        .sane {
+            color: var(--yes-color);
+        }
+
+        .insane {
+            color: var(--no-color);
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Which Bitcoin Should You Run?</h1>
+    <div class="subtitle">(for the mass-debaters of crypto)</div>
+</header>
+
+<div class="flow-container">
+    
+    <!-- Q1 -->
+    <div class="node">
+        <div class="question-box">Q: Do you want to help scale Bitcoin to billions of users making daily transactions?</div>
+        <div class="choices">
+            <div class="choice-branch">
+                <span class="path-label yes-label">YES</span>
+                <div class="answer-box yes-box">"Yes — with programmable money such as Lightning, we can scale to billions without sacrificing decentralization."</div>
+            </div>
+            <div class="choice-branch">
+                <span class="path-label no-label">NO</span>
+                <div class="answer-box no-box">"No, I don't like scalability or decentralization"</div>
+                <div class="punchline-container">
+                    <div class="punchline-box">
+                        <strong>➜ Run Bitcoin Cash (BCH) or Bitcoin SV (BSV)</strong><br><br>
+                        Enjoy your 32MB blocks full of nothing — or go full BSV with 4GB blocks to store Craig Wright's court documents on-chain.
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="connector-yes"></div>
+    </div>
+
+    <!-- Q2 -->
+    <div class="node">
+        <div class="question-box">Q: Do you like privacy?</div>
+        <div class="choices">
+            <div class="choice-branch">
+                <span class="path-label yes-label">YES</span>
+                <div class="answer-box yes-box">"Yes! I'll use Coinjoins to prepare channels (in an Ark channel factory) on Lightning and accept payments via Bolt12 offers."</div>
+            </div>
+            <div class="choice-branch">
+                <span class="path-label no-label">NO</span>
+                <div class="answer-box no-box">"No, OFAC should decide who I can transact with"</div>
+                <div class="punchline-container">
+                    <div class="punchline-box">
+                        <strong>➜ Run PanoptiCoin</strong><br><br>
+                        Every transaction observed and pre-approved by your compliance officer. Freedom is slavery.
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="connector-yes"></div>
+    </div>
+
+    <!-- Q3 -->
+    <div class="node">
+        <div class="question-box">Q: Should privacy be built into Bitcoin's ecosystem rather than requiring a separate privacy coin?</div>
+        <div class="choices">
+            <div class="choice-branch">
+                <span class="path-label yes-label">YES</span>
+                <div class="answer-box yes-box">"Yes! Cashu and Fedimint give me private ecash backed by real sats. I just pay Lightning invoices — nobody knows I'm being private."</div>
+            </div>
+            <div class="choice-branch">
+                <span class="path-label no-label">NO</span>
+                <div class="answer-box no-box">"No, I'll use a separate privacy coin instead"</div>
+                <div class="punchline-container">
+                    <div class="punchline-box">
+                        <strong>➜ Run Monero (XMR)</strong><br><br>
+                        "Do you accept Monero?" Nothing says 'private' like announcing your tiny anonymity set to every merchant.
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="connector-yes"></div>
+    </div>
+
+    <!-- Q4 -->
+    <div class="node">
+        <div class="question-box">Q: Is miner decentralization important to you?</div>
+        <div class="choices">
+            <div class="choice-branch">
+                <span class="path-label yes-label">YES</span>
+                <div class="answer-box yes-box">"Yes — the goal isn't to transfer power from large miners to small miners, but to ensure NO miner has any power. In particular, no miner should have censorship power."</div>
+            </div>
+            <div class="choice-branch">
+                <span class="path-label no-label">NO</span>
+                <div class="answer-box no-box">"No, 'honest' miners should coordinate to censor 'naughty' transactions. I'm sure the Censorship Committee will never be co-opted."</div>
+                <div class="punchline-container">
+                    <div class="punchline-box">
+                        <strong>➜ Run BIP 110</strong><br><br>
+                        Censorship by committee. What could go wrong? Besides, miners will totally leave money on the table to enforce your morals.
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="connector-yes"></div>
+    </div>
+
+    <!-- Q5 -->
+    <div class="node">
+        <div class="question-box">Q: Are Layer 2 solutions (Lightning Network, etc.) the right approach to scaling?</div>
+        <div class="choices">
+            <div class="choice-branch">
+                <span class="path-label yes-label">YES</span>
+                <div class="answer-box yes-box">"Yes! Cheap blockspace + Layer 2s is the best of both worlds. Easy on-chain access secures the L2s, and L2 adoption frees up room for even more scaling."</div>
+            </div>
+            <div class="choice-branch">
+                <span class="path-label no-label">NO</span>
+                <div class="answer-box no-box">"No, every transaction belongs on-chain where chainalysis can monitor it forever. Who needs the privacy of off-chain payments?"</div>
+                <div class="punchline-container">
+                    <div class="punchline-box">
+                        <strong>➜ Run Bitcoin Unlimited</strong><br><br>
+                        All txs on-chain, all visible to chain surveillance, forever. Chainalysis thanks you for your service.
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="connector-yes"></div>
+    </div>
+
+    <!-- Q6 -->
+    <div class="node">
+        <div class="question-box">Q: Should all monetary, fee-paying transactions be relayed regardless of their purpose?</div>
+        <div class="choices">
+            <div class="choice-branch">
+                <span class="path-label yes-label">YES</span>
+                <div class="answer-box yes-box">"Yes — SatoshiDice transactions were monetary: bitcoin in, bitcoin out, fees paid. Censorship resistance means you don't get to judge what a payment is for."</div>
+            </div>
+            <div class="choice-branch">
+                <span class="path-label no-label">NO</span>
+                <div class="answer-box no-box">"No, I'll blindly accept auto-updates from my favourite statist dev who sneaks address blacklists into my OS package manager."</div>
+                <div class="punchline-container">
+                    <div class="punchline-box">
+                        <strong>➜ SatoshiDice Derangement Syndrome</strong><br><br>
+                        A blacklist was once silently shipped in a Gentoo bitcoind patch. At least that dev apologised. Your next auto-update might not.
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="connector-yes"></div>
+    </div>
+
+    <!-- Q7 -->
+    <div class="node">
+        <div class="question-box">Q: Do you understand that not all mempool filters are equal?</div>
+        <div class="choices">
+            <div class="choice-branch">
+                <span class="path-label yes-label">YES</span>
+                <div class="answer-box yes-box">"Yes — the question isn't whether my node rejects a transaction. It's whether the transaction still gets mined anyway, out-of-band."</div>
+            </div>
+            <div class="choice-branch">
+                <span class="path-label no-label">NO</span>
+                <div class="answer-box no-box">"A filter is a filter. If my node rejects it, it's gone."</div>
+                <div class="punchline-container">
+                    <div class="punchline-box">
+                        <strong>➜ Wishful Thinking Node</strong><br><br>
+                        Your node rejected it. The miner with a direct submission pipeline didn't. Congrats, you played yourself.
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="connector-yes"></div>
+    </div>
+
+    <!-- Q8 -->
+    <div class="node">
+        <div class="question-box">Q: Do you understand that a filter has FAILED if the transaction still gets mined out-of-band (e.g. Mara's SlipStream)?</div>
+        <div class="choices">
+            <div class="choice-branch">
+                <span class="path-label yes-label">YES</span>
+                <div class="answer-box yes-box">"Yes — that's the worst case for decentralization. OOB mining concentrates fees with well-connected miners. The filter achieved nothing except making mining less competitive."</div>
+            </div>
+            <div class="choice-branch">
+                <span class="path-label no-label">NO</span>
+                <div class="answer-box no-box">"No! I didn't see it in my mempool, so it doesn't exist. My virtue signalling is more important than having a positive impact on the network."</div>
+                <div class="punchline-container">
+                    <div class="punchline-box">
+                        <strong>➜ Run Knots</strong><br><br>
+                        I rely on the network security provided by LibreRelay and Core v30 nodes, which allows me to virtue signal with my ineffective filter.
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="connector-yes"></div>
+    </div>
+
+    <!-- Q9 -->
+    <div class="node">
+        <div class="question-box">Q: When demand IS high enough to incentivize out-of-band mining, what should you do?</div>
+        <div class="choices">
+            <div class="choice-branch">
+                <span class="path-label yes-label">RELAY</span>
+                <div class="answer-box yes-box">"Even if you're reluctant, consider running LibreRelay. Sometimes we must reluctantly allow transactions we dislike to protect mining decentralization."</div>
+            </div>
+            <div class="choice-branch">
+                <span class="path-label no-label">FILTER</span>
+                <div class="answer-box no-box">"Move the filter to consensus! That'll definitely work!"</div>
+                <div class="punchline-container">
+                    <div class="punchline-box">
+                        <strong>➜ Run BIP 110</strong><br><br>
+                        Bans OP_SUCCESS, breaks OP_IF, activates at 55%, and admits in its own text that "spam is best fought with policy, not consensus."
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="connector-yes"></div>
+    </div>
+
+    <!-- Q10 -->
+    <div class="node">
+        <div class="question-box">Q: Do I understand that the dust limit filter works, but also that some filters don't work?</div>
+        <div class="choices">
+            <div class="choice-branch">
+                <span class="path-label yes-label">YES</span>
+                <div class="answer-box yes-box">"Yes — dusty tx senders aren't motivated enough to go OOB, and RBF min-fees prevent DoS. But this doesn't mean high-demand tx filters will work."</div>
+            </div>
+            <div class="choice-branch">
+                <span class="path-label no-label">NO</span>
+                <div class="answer-box no-box">"The dust limit works, therefore all filters work!"</div>
+                <div class="punchline-container">
+                    <div class="punchline-box">
+                        <strong>➜ Survivorship Bias Node</strong><br><br>
+                        The dust limit works because nobody cares to bypass it. That doesn't prove your filter against high-demand txs will work.
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="connector-yes"></div>
+    </div>
+
+    <!-- Q11 -->
+    <div class="node">
+        <div class="question-box">Q: Do you understand that cheap blockspace means the chain may be filled with "spam"?</div>
+        <div class="choices">
+            <div class="choice-branch">
+                <span class="path-label yes-label">YES</span>
+                <div class="answer-box yes-box">"Yes — one man's spam is another man's data. Steganography means you can't ban content without banning transactions. That's the point."</div>
+            </div>
+            <div class="choice-branch">
+                <span class="path-label no-label">NO</span>
+                <div class="answer-box no-box">"No, I'll run an ineffective filter that would harm decentralization if it actually succeeded."</div>
+                <div class="punchline-container">
+                    <div class="punchline-box">
+                        <strong>➜ Run Ordisrespector</strong><br><br>
+                        Your filter either fails (due to relaxed nodes) or succeeds (leading to OOB and mining centralisation). Heads you lose, tails you lose.
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="connector-yes"></div>
+    </div>
+
+    <!-- Q12 -->
+    <div class="node">
+        <div class="question-box">Q: Given that spam is inevitable, where should it go?</div>
+        <div class="choices">
+            <div class="choice-branch">
+                <span class="path-label yes-label">PRUNABLE</span>
+                <div class="answer-box yes-box">"OP_RETURN and Witness data — keep the junk prunable and out of the UTXO set so anyone can run a node."</div>
+            </div>
+            <div class="choice-branch">
+                <span class="path-label no-label">UTXO SET</span>
+                <div class="answer-box no-box">"Ban OP_RETURN! Force spammers to encode data in fake pubkeys that bloat the UTXO set forever."</div>
+                <div class="punchline-container">
+                    <div class="punchline-box">
+                        <strong>➜ Run BIP 110</strong><br><br>
+                        Congrats, you banned OP_RETURN and forced spammers into fake pubkeys that bloat your UTXO set forever. Galaxy brain.
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="connector-yes"></div>
+    </div>
+
+    <!-- VICTORY -->
+    <div class="victory-box">
+        <p class="keep-calm">KEEP CALM AND</p>
+        <p class="run-taproot">RUN TAPROOT</p>
+        <div class="subtitle">bitcoin-core.org | Full Sovereignty</div>
+    </div>
+
+    <!-- POST CREDITS -->
+    <div class="post-credits">
+        <div class="wait-label">But wait...</div>
+        <div class="node">
+            <div class="question-box">Q: Are you still determined to have a soft fork this year?</div>
+            <div class="choices">
+                <div class="choice-branch">
+                    <span class="path-label yes-label">YES</span>
+                    <div class="answer-box yes-box sane" style="width: 600px;">"Yes — BIP-54 Consensus Cleanup is the right way: carefully building technical consensus, fixing real bugs, no drama."</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,358 @@
+
+    ╔═══════════════════════════════════════════════════════════════╗
+    ║         WHICH BITCOIN SHOULD YOU RUN? - A FLOWCHART           ║
+    ║              (for the mass-debaters of crypto)                ║
+    ╚═══════════════════════════════════════════════════╦═══════════╝
+                                                        ║
+                                                        ▼
+    ┌───────────────────────────────────────────────────────────────────────┐
+    │  Q: Do you want to help scale Bitcoin to billions of users            │
+    │      making daily transactions?                                       │
+    └───────────────────────────┬───────────────────────────────┬───────────┘
+                                │                               │
+                             YES│                            NO │
+                                │                               │
+                                 ▼                               ▼
+    ┌──────────────────────────────────────┐      ┌──────────────────────────────────┐
+    │ "Yes — with programmable money such  │      │ "No, I don't like                │
+    │  as Lightning, we can scale          │      │  scalability or decentralization"│
+    │  to billions without sacrificing     │      └───────────────┬────────────────┘
+    │  decentralization."                  │                      │
+    └──────────────────┬───────────────────┘                      ▼
+                       │                          ┌──────────────────────────────────┐
+                       │                          │  ➜ Run Bitcoin Cash (BCH)        │
+                       │                          │    or Bitcoin SV (BSV)           │
+                       │                          │                                  │
+                       │                          │  Enjoy your 32MB blocks full of  │
+                       │                          │  nothing — or go full BSV with   │
+                       │                          │  4GB blocks to store Craig       │
+                       │                          │  Wright's court documents        │
+                       │                          │  on-chain.                       │
+                       │                          └──────────────────────────────────┘
+                       │
+                       ▼
+    ┌───────────────────────────────────────────────────────────────────────┐
+    │  Q: Do you like privacy?                                              │
+    └───────────────────────────┬───────────────────────────────┬───────────┘
+                                │                               │
+                             YES│                            NO │
+                                │                               │
+                                ▼                               ▼
+    ┌──────────────────────────────────────┐      ┌──────────────────────────┐
+    │ "Yes! I'll use Coinjoins to prepare  │      │ "No, OFAC should decide  │
+    │  channels (in an Ark channel factory)│      │  who I can transact      │
+    │  on Lightning and accept payments    │      │  with"                   │
+    │  via Bolt12 offers."                 │      └────────────┬─────────────┘
+    └──────────────────┬───────────────────┘                   │
+                       │                                       ▼
+                       │                          ┌──────────────────────────┐
+                       │                          │  ➜ Run PanoptiCoin       │
+                       │                          │                          │
+                       │                          │  Every transaction       │
+                       │                          │  observed and            │
+                       │                          │  pre-approved by your    │
+                       │                          │  compliance officer.     │
+                       │                          │  Freedom is slavery.     │
+                       │                          └──────────────────────────┘
+                       │
+                       ▼
+    ┌───────────────────────────────────────────────────────────────────────┐
+    │  Q: Should privacy be built into Bitcoin's ecosystem rather than      │
+    │     requiring a separate privacy coin?                                │
+    └───────────────────────────┬───────────────────────────────┬───────────┘
+                                │                               │
+                             YES│                            NO │
+                                │                               │
+                                ▼                               ▼
+    ┌──────────────────────────────────────┐      ┌──────────────────────────┐
+    │ "Yes! Cashu and Fedimint give me     │      │ "No, I'll use a separate │
+    │  private ecash backed by real sats.  │      │  privacy coin instead"   │
+    │  I just pay Lightning invoices —     │      └────────────┬─────────────┘
+    │  nobody knows I'm being private."    │                   │
+    └──────────────────┬───────────────────┘                   ▼
+                       │                          ┌──────────────────────────┐
+                       │                          │  ➜ Run Monero (XMR)      │
+                       │                          │                          │
+                       │                          │  "Do you accept Monero?" │
+                       │                          │  Nothing says 'private'  │
+                       │                          │  like announcing your    │
+                       │                          │  tiny anonymity set to   │
+                       │                          │  every merchant.         │
+                       │                          └──────────────────────────┘
+                       │
+                       ▼
+    ┌───────────────────────────────────────────────────────────────────────┐
+    │  Q: Is miner decentralization important to you?                       │
+    └───────────────────────────┬───────────────────────────────┬───────────┘
+                                │                               │
+                             YES│                            NO │
+                                │                               │
+                                ▼                               ▼
+    ┌──────────────────────────────────────┐      ┌──────────────────────────────────┐
+    │ "Yes — the goal isn't to transfer    │      │ "No, 'honest' miners should      │
+    │  power from large miners to small    │      │  coordinate to censor 'naughty'  │
+    │  miners, but to ensure NO miner has  │      │  transactions. I'm sure the      │
+    │  any power. In particular, no miner  │      │  Censorship Committee will never │
+    │  should have censorship power."      │      │  be co-opted — and financially-  │
+    └──────────────────┬───────────────────┘      │  incentivized miners will never  │
+                       │                          │  just include them anyway."      │
+                       │                          └───────────────┬────────────────┘
+                       │                                          │
+                       │                                          ▼
+                       │                          ┌──────────────────────────────────┐
+                       │                          │  ➜ BIP 110                       │
+                       │                          │                                  │
+                       │                          │  Censorship by committee. What   │
+                       │                          │  could go wrong? Besides, miners │
+                       │                          │  will totally leave money on the │
+                       │                          │  table to enforce your morals.   │
+                       │                          └──────────────────────────────────┘
+                       │
+                       ▼
+    ┌───────────────────────────────────────────────────────────────────────┐
+    │  Q: Are Layer 2 solutions (Lightning Network, etc.) the right         │
+    │      approach to scaling?                                             │
+    └───────────────────────────┬───────────────────────────────┬───────────┘
+                                │                               │
+                             YES│                            NO │
+                                │                               │
+                                 ▼                               ▼
+    ┌──────────────────────────────────────┐      ┌──────────────────────────────────┐
+    │ "Yes! Cheap blockspace + Layer 2s    │      │ "No, every transaction belongs    │
+    │  is the best of both worlds. Easy    │      │  on-chain where chainalysis can   │
+    │  on-chain access secures the L2s,    │      │  monitor it forever. Who needs    │
+    │  and L2 adoption frees up room for   │      │  the privacy of off-chain         │
+    │  even more scaling."                 │      │  payments?"                       │
+    └──────────────────┬───────────────────┘      └───────────────┬────────────────┘
+                       │                                          │
+                       │                                          ▼
+                       │                          ┌──────────────────────────────────┐
+                       │                          │  ➜ Run Bitcoin Unlimited         │
+                       │                          │                                  │
+                       │                          │  All txs on-chain, all visible   │
+                       │                          │  to chain surveillance, forever. │
+                       │                          │  Chainalysis thanks you for      │
+                       │                          │  your service.                   │
+                       │                          └──────────────────────────────────┘
+                       │
+                       ▼
+    ┌───────────────────────────────────────────────────────────────────────┐
+    │  Q: Should all monetary, fee-paying transactions be relayed regardless│
+    │     of their purpose?                                                 │
+    └───────────────────────────┬───────────────────────────────┬───────────┘
+                                │                               │
+                             YES│                            NO │
+                                │                               │
+                                ▼                               ▼
+    ┌──────────────────────────────────────┐      ┌──────────────────────────────────┐
+    │ "Yes — SatoshiDice transactions were │      │ "No, I'll blindly accept auto-   │
+    │  monetary: bitcoin in, bitcoin out,  │      │  updates from my favourite       │
+    │  fees paid. Censorship resistance    │      │  statist dev who sneaks address  │
+    │  means you don't get to judge what   │      │  blacklists into my OS package   │
+    │  a payment is for."                  │      │  manager without telling me."    │
+    └──────────────────┬───────────────────┘      └───────────────┬────────────────┘
+                       │                                          │
+                       │                                          ▼
+                       │                          ┌──────────────────────────────────┐
+                       │                          │  ➜ SatoshiDice Derangement       │
+                       │                          │    Syndrome                      │
+                       │                          │                                  │
+                       │                          │  A blacklist was once silently   │
+                       │                          │  shipped in a Gentoo bitcoind    │
+                       │                          │  patch, on by default. At least  │
+                       │                          │  that dev apologised. Your next  │
+                       │                          │  auto-update might not come with │
+                       │                          │  an apology.                     │
+                       │                          └──────────────────────────────────┘
+                       │
+                       ▼
+    ┌───────────────────────────────────────────────────────────────────────┐
+    │  Q: Do you understand that not all mempool filters are equal?         │
+    └───────────────────────────┬───────────────────────────────┬───────────┘
+                                │                               │
+                             YES│                            NO │
+                                │                               │
+                                ▼                               ▼
+    ┌──────────────────────────────────────┐      ┌──────────────────────────────────┐
+    │ "Yes — the question isn't whether    │      │ "A filter is a filter. If my     │
+    │  my node rejects a transaction. It's │      │  node rejects it, it's gone."    │
+    │  whether the transaction still gets  │      └───────────────┬────────────────┘
+    │  mined anyway, out-of-band."         │                      │
+    └──────────────────┬───────────────────┘                      ▼
+                       │                          ┌──────────────────────────────────┐
+                       │                          │  ➜ Knots / older Core            │
+                       │                          │                                  │
+                       │                          │  Your node rejected it. The      │
+                       │                          │  miner with a direct submission  │
+                       │                          │  pipeline didn't. Congrats,      │
+                       │                          │  you played yourself.            │
+                       │                          └──────────────────────────────────┘
+                       │
+                       ▼
+    ┌───────────────────────────────────────────────────────────────────────┐
+    │  Q: Do you understand that a filter has FAILED if the transaction     │
+    │     still gets mined out-of-band (e.g. Mara's SlipStream)?            │
+    └───────────────────────────┬───────────────────────────────┬───────────┘
+                                │                               │
+                             YES│                            NO │
+                                │                               │
+                                ▼                               ▼
+    ┌──────────────────────────────────────┐      ┌──────────────────────────────────┐
+    │ "Yes — that's the worst case for     │      │ "No! I didn't see it in my       │
+    │  decentralization. OOB mining        │      │  mempool, so it doesn't exist.   │
+    │  concentrates fees with well-        │      │  My virtue signalling is more    │
+    │  connected miners. The filter        │      │  important than having a         │
+    │  achieved nothing except making      │      │  positive impact on the          │
+    │  mining less competitive."           │      │  network."                       │
+    └──────────────────┬───────────────────┘      └───────────────┬────────────────┘
+                       │                                          │
+                       │                                          ▼
+                       │                          ┌──────────────────────────────────┐
+                       │                          │  ➜ Run Knots                     │
+                       │                          │                                  │
+                       │                          │  I rely on the network security  │
+                       │                          │  and decentralization protection │
+                       │                          │  provided by the LibreRelay and  │
+                       │                          │  Core v30 nodes, which allows me │
+                       │                          │  to virtue signal with my        │
+                       │                          │  ineffective filtering node.     │
+                       │                          └──────────────────────────────────┘
+                       │
+                       ▼
+    ┌───────────────────────────────────────────────────────────────────────┐
+    │  Q: When demand IS high enough to incentivize out-of-band mining,     │
+    │     what should you do?                                               │
+    └───────────────────────────┬───────────────────────────────┬───────────┘
+                                │                               │
+                                ▼                               ▼
+    ┌──────────────────────────────────────┐      ┌──────────────────────────────────┐
+    │ "Even if you're reluctant, consider  │      │ "Move the filter to consensus!   │
+    │  running LibreRelay. Sometimes we    │      │  That'll definitely work!"       │
+    │  must reluctantly allow transactions │      └───────────────┬────────────────┘
+    │  we dislike into the public mempool, │                      │
+    │  because mining decentralization is  │                      ▼
+    │  too important to sacrifice.         │      ┌──────────────────────────────────┐
+    │                                      │      │  ➜ Run BIP 110                   │
+    │  Just a few dozen relaxed nodes      │      │                                  │
+    │  defend miner decentralization —     │      │  Bans OP_SUCCESS (your future    │
+    │  while even a million filtering      │      │  soft fork upgrade hooks), breaks│
+    │  nodes can't stop a single           │      │  OP_IF in Tapscript, thinks      │
+    │  OOB-mined transaction."             │      │  contiguous bytes are scarier    │
+    └──────────────────┬───────────────────┘      │  than non-contiguous ones,       │
+                       │                          │  activates at 55% because real   │
+                       │                          │  consensus is too hard, and      │
+                       │                          │  admits in its own text that     │
+                       │                          │  "spam is best fought with       │
+                       │                          │  policy, not consensus."         │
+                       │                          └──────────────────────────────────┘
+                       │
+                       ▼
+    ┌───────────────────────────────────────────────────────────────────────┐
+    │  Q: Do I understand that the dust limit filter works, but also        │
+    │     that some filters don't work?                                     │
+    └───────────────────────────┬───────────────────────────────┬───────────┘
+                                │                               │
+                             YES│                            NO │
+                                │                               │
+                                ▼                               ▼
+    ┌──────────────────────────────────────┐      ┌──────────────────────────────────┐
+    │ "Yes — dusty tx senders aren't       │      │ "The dust limit works, therefore │
+    │  motivated enough to go OOB, so the  │      │  all filters work!"              │
+    │  filter works cleanly. Same with the │      └───────────────┬────────────────┘
+    │  RBF incremental relay fee — it      │                      │
+    │  prevents DoS by requiring a minimum │                      ▼
+    │  bump, and the amounts are too small │      ┌──────────────────────────────────┐
+    │  to incentivize OOB.                 │      │  ➜ Survivorship Bias Node        │
+    │                                      │      │                                  │
+    │  But this doesn't mean every filter  │      │  The dust limit works because    │
+    │  works — see the sub-1sat-per-vB     │      │  nobody cares enough to bypass   │
+    │  summer of 2025, when high demand    │      │  it. That doesn't prove your     │
+    │  met ineffective filters."           │      │  filter against high-demand txs  │
+    └──────────────────┬───────────────────┘      │  will work too. Ask the miners   │
+                       │                          │  who got paid out-of-band.       │
+                       │                          └──────────────────────────────────┘
+                       │
+                       ▼
+    ┌───────────────────────────────────────────────────────────────────────┐
+    │  Q: Do you understand that cheap blockspace and censorship-resistance │
+    │     means the chain may be filled with "spam"?                        │
+    └───────────────────────────┬───────────────────────────────┬───────────┘
+                                │                               │
+                             YES│                            NO │
+                                │                               │
+                                ▼                               ▼
+    ┌──────────────────────────────────────┐      ┌──────────────────────────────────┐
+    │ "Yes — one man's spam is another     │      │ "No, I'll run an ineffective     │
+    │  man's data. Steganography means     │      │  filter that wouldn't just fail  │
+    │  you can't ban content without       │      │  to stop spam — it would harm    │
+    │  banning transactions. That's the    │      │  decentralization if it actually │
+    │  whole point."                       │      │  succeeded."                     │
+    └──────────────────┬───────────────────┘      └───────────────┬────────────────┘
+                       │                                          │
+                       │                                          ▼
+                       │                          ┌──────────────────────────────────┐
+                       │                          │  ➜ Run Knots / Ordisrespector    │
+                       │                          │                                  │
+                       │                          │  Your filter either fails (due   │
+                       │                          │  to the few dozen relaxed nodes) │
+                       │                          │  or succeeds (leading to OOB     │
+                       │                          │  and mining centralisation).     │
+                       │                          │  Heads you lose, tails you lose. │
+                       │                          └──────────────────────────────────┘
+                       │
+                       ▼
+    ┌───────────────────────────────────────────────────────────────────────┐
+    │  Q: Given that spam is inevitable, where should it go?                │
+    └───────────────────────────┬───────────────────────────────┬───────────┘
+                                │                               │
+                                │                               │
+                                ▼                               ▼
+    ┌──────────────────────────────────────┐      ┌──────────────────────────────────┐
+    │ "OP_RETURN and Witness data — keep   │      │ "Ban OP_RETURN! Force spammers   │
+    │  the junk prunable and out of the    │      │  to encode data in fake pubkeys  │
+    │  UTXO set so anyone can run a node." │      │  that bloat the UTXO set forever │
+    └──────────────────┬───────────────────┘      │  because they can never be spent.│
+                       │                          │  Eventually only elite Real      │
+                       │                          │  Bitcoiners like me can afford   │
+                       │                          │  to run a node."                 │
+                       │                          └───────────────┬────────────────┘
+                       │                                          │
+                       │                                          ▼
+                       │                          ┌──────────────────────────────────┐
+                       │                          │  ➜ Run BIP 110                   │
+                       │                          │                                  │
+                       │                          │  Congrats, you banned OP_RETURN  │
+                       │                          │  and forced spammers into fake   │
+                       │                          │  pubkeys that bloat your UTXO    │
+                       │                          │  set forever. Full nodes just    │
+                       │                          │  got more expensive. Galaxy      │
+                       │                          │  brain.                          │
+                       │                          └──────────────────────────────────┘
+                       │
+                       ▼
+    ╔═══════════════════════════════════════════════════════════════════════╗
+    ║                                                                       ║
+    ║                    ╔═══════════════════════════╗                      ║
+    ║                    ║   KEEP CALM AND           ║                      ║
+    ║                    ║   RUN TAPROOT             ║                      ║
+    ║                    ╚═══════════════════════════╝                      ║
+    ║                                                                       ║
+    ║   You chose wisely. You are the mass-debater champion.                ║
+    ║   Now go run `bitcoind` and verify everything yourself.               ║
+    ║                                                                       ║
+    ╚═══════════════════════════════════════════════╦═══════════════════════╝
+                                                    ║
+                                         But wait...║
+                                                    ▼
+    ┌───────────────────────────────────────────────────────────────────────┐
+    │  Q: Are you still determined to have a soft fork this year?            │
+    └───────────────────────────────────┬───────────────────────────────────┘
+                                        │                                    
+                                     YES│                                    
+                                        │                                    
+                                        ▼                                    
+    ┌───────────────────────────────────────────────────────────────────────┐
+    │ "Yes — BIP-54 Consensus Cleanup is doing it the right way: carefully  │
+    │  building technical consensus, fixing real bugs, no drama."           │
+    └───────────────────────────────────────────────────────────────────────┘
+
